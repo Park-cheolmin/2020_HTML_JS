@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>인터페이스구현 테스트 4번 박철민!</title>
+    <style>
+        .container { width: 700px; margin: 50px auto 0; padding: 20px; border: 1px solid #000;}
+        h1, p {text-align: center;}
+        fieldset {border-style: none;}
+        legend { width: 100px; height: 35px; margin-bottom: 20px; padding-left: 10px;  background-color: black; text-align: justify; color: white; }
+       
+        #form1 label { padding-left: 30px; position: relative; line-height: 30px;}
+        #form1 label span { float:right; font-size: 13px; color: red;}
+        #form1 input { position: absolute; top: 3px; left: 130px;}
+        #address {width: 450px;}
+        #form2 { border-bottom:  1px solid #000; }
+        h3 { font-weight: normal; margin :10px auto 0;}      
+        .imfor { margin-left: 30px;}  
+
+        #btn{text-align: center; margin-top: 20px;}
+        .btn{width: 130px; height: 40px;}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="join.jsp">
+            <h1>회원가입</h1>
+            <p>코리아 홈쇼핑에 오신걸 환영합니다.</p>
+            <hr>
+            <fieldset id = form1>
+                <legend>필수 정보</legend>
+                <label>아이디<input type="text" autofocus required></label><br>
+                <label>비밀번호<input type="password" required><span>비밀번호는 영문자, 숫자를 포함하여 13자 이내로 입력하시오.</span></label><br>
+                <label>이름<input type="text" placeholder="공백없이 입력하세요"></label><br>
+                <label>휴대폰<input type="tel" placeholder="-(대쉬) 기호없이 입력하세요"></label><br>
+                <label>이메일<input type="email" required></label><br>
+                <label>주소<input type="address" id="address" required></label><br>
+                
+            </fieldset>
+            <fieldset id = form2>
+                <legend>추가 정보</legend>
+                <div class="imfor">
+                    <h3>성별</h3>
+                    <input type="radio" name="sex" value="man">남자
+                    <input type="radio" name="sex" value="woman">여자<br>
+                    <br>
+                    <h3>관심분야</h3>
+                    <input type="checkbox" name="interest" value="cloth">의류
+                    <input type="checkbox" name="interest" value="beaty">뷰티
+                    <input type="checkbox" name="interest" value="food">식품
+                    <input type="checkbox" name="interest" value="interial">인테리어
+                    <input type="checkbox" name="interest" value="degital">디지털<br>
+                    <br>
+                    <h3>취미</h3>
+                    <select>
+                        <option value="music">음악감상</option>
+                        <option value="book">독서</option>
+                        <option value="exercise">운동</option>
+                    </select>
+                </div>
+            </fieldset>
+            <div id="btn">
+                <label><input type="submit" value="가입하기" class="btn"></label>
+                <label><input type="reset" value="다시쓰기" class="btn"></label>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
