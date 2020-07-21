@@ -7,6 +7,16 @@
 </head>
 <body>
     <script>
+        // 2.switch ~ case문 작성
+        // 조건 : 정수만 가능, 실수는 불가능, 문자열도 가능
+        // 조건에 따라 case문을 선택함
+        // :(콜론) : 레이블(label) 의미
+        // case : ~경우에
+
+        // if문 switch~case문의 비교
+        // 1. switch문으로 만들수 있는 것은 모두 if문으로 만들수 있음.
+        // 2. if문으로 만들수 있는 것은 모두 switch문으로 만들수는 없음(switch문의 조건은 제약이 있다.)
+        // 3. switch문 정수, 문자열로 가지수 여러 가지로 딱 떨어지는 경우에 사용하면 if문보다 간결하고 명확한 프로그래밍을 할수 있다.
         var menu = prompt("메뉴를 선택하세요.(1~4)","");
         switch(menu){
             case 1:
@@ -22,7 +32,7 @@
                 document.write("메뉴 닫기");
                 break;
             default:
-                document.write("다시 입력");
+                document.write("잘못 입력하셨습니다.<br>다시 입력해주세요");
                 break;
         }
     </script>
