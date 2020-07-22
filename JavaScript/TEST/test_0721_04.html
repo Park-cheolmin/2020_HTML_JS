@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a {color: red;}
+        .b {color: blue;}
+    </style>
+    <!-- 
+        1.입력창으로부터 정수를 입력받아서 출력하는 프로그램
+        입력 : 정수 입력 : 10
+        출력 : 1에서 부터 입력받은 정수 까지 출력, 홀수일떄는 글자색을 빨강색, 짝수일때는 글자색을 파란색, 브라우저로 출력
+     -->
+</head>
+<body>
+    <script>
+        var input = parseInt(prompt("정수 입력 : "));
+
+        for(var i = 1; i<=input; i++){
+            if(i!=1){
+                document.write(", ");
+            }
+            
+
+            document.write('<span class="');
+            if(i % 2 == 0){
+                document.write('a">');
+            } else{
+                document.write('b">');
+            }
+            document.write(i + '</span>');
+        }
+    </script>
+</body>
+</html>
