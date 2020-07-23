@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>중첩 for문</title>
+    <title>중첩 for문(Table로만들기)</title>
     <style>
         .container { width: 800px; margin: 30px auto; }
         h2 { text-align: center; }
-        table { width: 100%; border: 1px solid black; border-collapse: collapse; font-size: 0.8em;}
+        table { width: 100%; border: 1px solid black; border-collapse: collapse; font-size: 0.8em; background: linear-gradient(to right, lightgray, pink);}
         tr { height: auto; }
         td { width: 25%; border: 1px solid black; text-align: center; }
 
@@ -22,10 +22,7 @@
 <body>
     <div class="container">
         <h2>월별 탄생석과 상징</h2>
-        
-        
 
-    
     <script>
         var stones = [
             "1월/가넷/사랑,진실", "2월/자수정/평화,성실", "3월/아쿠아마린/총명,용감",
@@ -33,11 +30,9 @@
             "7월/루비/영원한생명,열정,용기", "8월/감람석/지혜,부부의행복", "9월/사파이어/지혜,불변",
             "10월/오팔/희망,순결", "11월/토파즈/우정,인내", "12월/터키석/성공,승리"
             ];
+
         document.write("<table>")
         var a = 1;
-
-
-
         for(var i=1; i<=3; i++){
             
             document.write("<tr>")
@@ -48,6 +43,8 @@
             document.write("</tr>")
         }
         document.write("</table>")
+
+
     </script>    
     </div>
 </body>

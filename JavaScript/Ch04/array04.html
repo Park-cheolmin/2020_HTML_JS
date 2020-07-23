@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 배열의 활용</title>
+    <!-- 
+        1. 학생 2차원 배열의 정보를 출력하세요.
+        2. 총점, 평균(소수점 2자리)를 기말고사뒤에 출력하세요
+     -->
+     <style>
+         .container {width:100%; height:800px; margin: 0 auto;}
+         table {border-collapse: collapse; text-align: center; background: linear-gradient(to bottom,lightblue, pink);}
+         th, td, tr { border: 1px solid #000;}
+         
+
+     </style>
+</head>
+<body>
+
+    <script>
+        var student = new Array(
+            Array("이익준", "컴공", 88, 76),  //이름, 전공, 중간, 기말
+            Array("왕석형", "수학", 70, 83),
+            Array("채송화", "물리", 92, 95),
+            Array("안정원", "전저", 85, 92),
+            Array("김준완", "기계", 97, 88),
+        );
+        
+        var total = 0;
+        var avg = 0;
+        for(var i=0; i<student.length; i++){
+            total = 0;
+            
+            for(var z=0; z<student[i].length; z++){
+                document.write(student[i][z] + ", ");
+                if(z>1){
+                    total += student[i][z];
+                }
+                
+            }
+           
+            avg = total/2;
+            document.write(total+",  "+ avg.toFixed(2));
+            document.write("<br>")
+        }
+
+
+        document.write("-----------------------------------------<br>");
+
+        document.write("<div class ='container'>");
+        document.write("<table>");
+            document.write("<tr><th>이름</th><th>전공</th><th>중간고사</th><th>기말고사</th><th>총점</th><th>평균</th></tr>")
+            
+        for(var i=0; i<student.length; i++){
+            total = 0;
+            document.write("<tr>");
+            for(var z=0; z<student[i].length; z++){
+                document.write("<td>"+student[i][z]+"</td>");
+                if(z>1){
+                    total += student[i][z];
+                }
+                
+            }
+            
+           
+            avg = total/2;
+            document.write("<td>" + total +"</td><td>"+ avg.toFixed(2)+"</td>");
+            document.write("</tr>");
+            
+        }
+        document.write("</table>");
+
+        document.write("</div>");
+
+    </script>
+</body>
+</html>
