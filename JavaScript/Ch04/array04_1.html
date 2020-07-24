@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array04다른방법</title>
+</head>
+<body>
+    <script>
+         var student = new Array(
+            Array("이익준", "컴공", 88, 76, 0, 0), 
+            Array("왕석형", "수학", 70, 83, 0, 0),
+            Array("채송화", "물리", 92, 95, 0, 0),
+            Array("안정원", "전자", 85, 92, 0, 0),
+            Array("김준완", "기계", 97, 88, 0, 0),
+        );
+
+        var result = new Array(0, 0, 0, 0);
+        var title = ['이름', '전공', '중간', '기말', '총점', '평균'];
+        document.write("<table>");
+            document.write("<caption>학생 정보</caption>");
+            document.write("<tr>")
+            for(var i=0; i<title.length; i++){
+                document.write("<td>" + title[i] + "</td>")
+            }
+            document.write("</tr>")
+            
+        for(var i=0; i<student.length; i++){
+            document.write("<tr>");
+            for(var z=0; z<student[i].length-2; z++){
+                document.write("<td>"+student[i][z]+"</td>");
+                student[i][4] = student[i][2] + student[i][3];
+            }
+            student[i][5] = student[i][4] / 2;
+            document.write("<td>" + student[i][4] + "</td>");
+            document.write("<td>" + student[i][5] + "</td>");
+            document.write("</tr>");
+            result[0] += student[i][2]; //중간점수 총합
+            result[1] += student[i][3]; //기말점수 총합
+            result[2] += student[i][4]; //총점점수 총합
+            result[3] += student[i][5];
+            
+        }
+
+        
+        document.write("<tr><th colspan = '2'>합계</th><td>");
+        for( var i =0; i<result.length; i++){
+            document.write("<td>" + (result[i]/student.length).toFixed(2)+"</td>");   
+        }  
+        document.write("</tr><table>")
+
+    </script>
+</body>
+</html>
