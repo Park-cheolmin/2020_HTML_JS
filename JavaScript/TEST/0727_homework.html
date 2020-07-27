@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보 게임</title>
+</head>
+<body>
+    <div id="user"></div>
+    <div id="com"></div>
+    <script>
+        
+        var user =  prompt("가위, 바위 , 보 중 하나를 입력하세요 : ");
+        var com = Math.floor(Math.random()*3);
+        var win=0;
+        var lost=0;
+        var draw=0;
+
+        
+
+        if(user == "가위"){
+            user = 0;
+            document.write("<img src='images/math_img_0.jpg'>USER");
+        } else if(user == "바위") {
+            user = 1;
+            document.write("<img src='images/math_img_1.jpg'>USER");
+        } else if(user == "보") {
+            user = 2;
+            document.write("<img src='images/math_img_2.jpg'>USER");
+        } else {
+            alert("잘못 입력 하셨습니다 다시 입력해주세요")
+            location.reload();
+        }
+
+        if(com == 0){
+            com = 0;
+            document.write("<img src='images/math_img_0.jpg'>COM");
+            
+        } else if(com == 1) {
+            com = 1;
+            document.write("<img src='images/math_img_1.jpg'>COM");
+            
+        } else if(com == 2) {
+            com = 2;
+            document.write("<img src='images/math_img_2.jpg'>COM");
+            
+        } else {
+            alert("잘못 입력 하셨습니다 다시 입력해주세요")
+            location.reload();
+        }
+
+        // 사용자승리
+        if((user==0 && com ==2)||(user==1 && com==0)||(user==2 && com==1)){
+            alert("승리하셨습니다");
+            win++;
+        } else if(user == com){
+            alert("비겼습니다.");
+            draw++;
+        } else if((user==0 && com ==1)||(user==1 && com==2)||(user==2 && com==0)){
+            alert("졌습니다.")
+            lose++;
+        }
+        
+        alert("승 : "+ win + "패 : " + lose + "비김 : "+draw);
+        win, draw, lose = 0;
+        
+
+
+       
+
+    </script>
+    <br><br><br>
+    <button onclick="location.reload()">다시하기</button>
+</body>
+</html>

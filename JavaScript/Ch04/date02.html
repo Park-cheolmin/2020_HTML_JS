@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>날짜 객체</title>
+</head>
+<body>
+    <script>
+        //날짜를 직접 설정하는 방법
+        //2020년 5월 31일로 날짜를 설정
+
+        //1.
+        var date1 = new Date(2002, 5, 31);
+        var year = date1.getFullYear();
+        var month = date1.getMonth();
+        var day = date1.getDate();
+        document.write(date1 + "<br>");
+        document.write(year + "년" + (month+1) + "월" + day + "일<br>");
+
+        //2.
+        var date2 = new Date(2020,11,31); //2020년 12월 31일
+        var year2 = date2.getFullYear();
+        var month2 = date2.getMonth();
+        var day2 = date2.getDate();
+
+        var hour2 = date2.getHours(); //24시간 기준
+        var minute2 = date2.getMinutes();
+        var secont2 = date2.getSeconds();
+        document.write(year2 + "년" + (month2+1) + "월" + day2 + "일<br>");
+        document.write(hour + "시" + minute + "분" + secont + "초<br>");
+        document.write("<hr>");
+
+        //3. 날짜 객체를 생성하고 후에 년월일 시분초를 삽입하여 사용
+        var date3 = new Date();
+
+        date3.setFullYear(2020);
+        date3.setMonth(6);
+        date3.setDate(27);
+
+        date3.setHours(14);
+        date3.setMinutes(49);
+        date3.setSeconds(45);
+
+        var year3 = date3.getFullYear();
+        var month3 = date3.getMonth();
+        var day3 = date3.getDate();
+
+        var hour3 = date3.getHours(); //24시간 기준
+        var minute3 = date3.getMinutes();
+        var secont3 = date3.getSeconds();
+        document.write(year3 + "년" + (month3+1) + "월" + day3 + "일<br>");
+        document.write(hour3 + "시" + minute3 + "분" + second3 + "초<br>");
+        document.write("<hr>");
+
+
+    
+        
+        
+
+    </script>
+</body>
+</html>
