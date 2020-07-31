@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>밀리의 서재 또는 윌리</title>
+    <style>
+        .container { width: 500px; margin: 30px auto;}
+        table { border: 1px solid #000; width: 500px; height: 500px;}
+        th, tr{ border: 1px solid #000;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <fieldset>
+                <table>
+                    <tr>
+                        <th>밀리의 서재에서 읽은 책
+                            <button onclick="">등록</button>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>오만과 편견
+                            <button onclick="">확인</button>
+                            <button onclick="">삭제</button>
+                        </th>
+                        
+                    </tr>
+                    <tr>
+                        <th>레미제라블
+                            <button onclick="">확인</button>
+                            <button onclick="">삭제</button>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>노인과 바다
+                            <button onclick="">확인</button>
+                            <button onclick="">삭제</button>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>전쟁과 평화
+                            <button onclick="">확인</button>
+                            <button onclick="">삭제</button>
+                        </th>
+                    </tr>
+                </table>
+          
+            </fieldset>
+        </form>
+    </div>
+
+    <script>
+        var upload = document.getElementById
+        
+
+        function Book(title, author, volume, price) {
+            this.title = title;
+            this.author = author;
+            this.volume = volume;
+            this.price = price;
+        }
+
+        Book.prototype.showinfo = function() {
+            var info = '책 제목: ' + this.title + "<br>저자: " + this.author + "<br>페이지 수: "+ this.price + "<br>가격 :";
+            alert(info);
+        }
+        var Book = [
+            new Book('오만과 편견', '홍길동', 200, 19000),
+            new Book('레미제라블', '홍길동', 300, 21000),
+            new Book('노인과 바다', '홍길동', 400, 22000),
+            new Book('전쟁과 평화', '홍길동', 500, 45000),
+
+        ];
+
+        Book.prototype.deleteBook = function() {
+
+        }
+    </script>
+    
+    
+    
+
+
+</body>
+</html>
