@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .container { width: 500px; margin: 0 auto;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>웹브라우저 이동하기</h3>
+        <hr>
+        <div>
+            <img src="images/wb0.PNG" alt="" width="60">
+            <img src="images/wb1.PNG" alt="" width="50">
+            <img src="images/wb2.PNG" alt="" width="60">
+            <img src="images/wb3.PNG" alt="" width="50">
+            <img src="images/wb4.PNG" alt="" width="60">
+            <img src="images/wb5.PNG" alt="" width="50">
+            <img src="images/wb6.PNG" alt="" width="60">
+        </div>
+        <hr>
+        <button id="b1">회전이동</button>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $("#b1").click(function(){
+                var obj1 = $("img:last");
+                $("img:first-child").clone().insertAfter(obj1);
+                $("img:first-child").remove();
+                
+            })
+        })
+    </script>
+</body>
+</html>
