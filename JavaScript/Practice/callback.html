@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Array.prototype.arr = []
+        Array.prototype.forEach2 = function(fn) {
+            for(var i=0; i<this.arr.length; i++) {
+                var item = (this.arr[i])
+                fn(item)
+            }
+        }
+        
+        var objarr = new Array()
+        objarr.arr = ['A', 'B', 'C']
+
+        var func = function(a) {
+            alert(a)
+        }
+        objArr.forEach2(func)
+        
+
+        //map : 기존 객체 를 수정하지 않는 메소드
+    </script>
+</body>
+</html>

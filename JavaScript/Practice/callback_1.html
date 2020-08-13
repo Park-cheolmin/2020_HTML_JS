@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function show(item) {
+            console.log(item)
+        }
+
+        var myFunc = function(item) {
+            console.log('A :' + item)
+        }
+
+        function forEach(jj, fn) {
+            for(var i=0; i<jj.length; i++) {
+                var item = jj[i]
+                fn(item)
+            }
+        }
+
+        var arr = ['A', 'B', 'C']
+        forEach(arr, function(item) {
+            console.log('C: ' + item)
+        }) //동적으로 함수를 바꿀수있다    , js는 변수에 함수를 넣을수 있다
+
+
+
+
+        //fliter
+        var arr = [2, 5, 10 , 19, 22, 24 , 100]
+        var arr2 = arr.filter(function(n){
+            return n%2 ==0
+        })
+        console.log(arr2)
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="id">divResult</div>
+    <script>
+        Array.prototype.arr = []
+        Array.prototype.map2 = function(fn) {
+            var myArr = []
+            for(var i = 0; i<this.arr.length; i++) {
+                var item = this.arr[i]
+                var fnResult = fn(item)
+                myArr.push(fnResult)  //push == list.add와같다 추가하는 역할
+            }
+            return myArr
+        }
+
+        //map : 기존 객체를 수정하지 않은 채 모든 배열에 일정한 규칙으로 값을 변경하고 싶을 때 사용
+        var arr = ['A', 'B', 'C']
+
+        var result = arr.map(function(item) {
+            return item + '1'
+        })
+        console.log("arr : " + arr)
+        console.log("result : " + result)
+
+        var arr2 = []
+        arr2.arr = ['A', 'B', 'C']
+        var result2 = arr2.map2(function(item){
+            return'1'
+        })
+
+        console.log("arr2.arr : " + arr2.arr)
+        console.log("result2 : " + result2)
+    </script>
+</body>
+</html>
