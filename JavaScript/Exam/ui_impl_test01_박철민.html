@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1번</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .container {
+            width: 650px;
+            margin: 30px auto;
+        }
+        .container h2 {
+            text-align: center;
+        }
+        .container form {
+            background-color: purple;
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+        form #title{
+            border: none;
+            width: 170px;
+            padding: 10px;
+            margin-right: 10px;
+            font-size: 1.1em;
+        }
+        form #date{
+            border: none;
+            width: 170px;
+            padding: 10px;
+            margin-right: 10px;
+            font-size: 1.1em;
+        }
+        form #theater{
+            border: none;
+            width: 100px;
+            padding: 10px;
+            font-size: 1.1em;
+        }
+        form .addBtn {
+            background-color: white;
+            color: #555;
+            border: none;
+            width: 80px;
+            padding: 10px;
+            font-size: 1em;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            }
+        ul li {
+            background-color: #eee;
+            font-size: 1.2em;
+            padding: 10px 10px 10px 40px;
+            position: relative;
+        }
+        ul li:nth-child(odd) {
+            background-color: #ddd;
+        } 
+        ul li:hover {
+            background-color: lemonchiffon;
+            color: brown;
+        }
+        .close {
+            background-color: orange;
+            padding: 3px 12px 6px 12px;
+            font-size: 1.4em;
+            color: red;
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor: pointer;
+        }
+        .movieInfo {
+            background-color: yellow;
+            padding: 3px 12px 6px 12px;
+            font-size: 1.2em;
+            margin-top: 2px;
+            color: gray;
+            position: absolute;
+            right: 34px;
+            top: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>영화 관람 리스트</h2>
+        <form>
+            <input type="text" id="title" placeholder="영화명" autofocus>
+            <input type="datetime-local" id="date" >
+            <input type="text" id="theater" placeholder="극장명">
+            <button id="add" class="addBtn">추가</button>
+        </form>
+        <div id="itemList"></div>
+    </div>
+    <script>
+        
+        function movie(title, date, theater) {
+            this.title = title;
+            this.date = date;
+            this.theater = theater;
+        }
+
+        movie.prototype.showInfo = function() {
+            return "영화명 : " + this.title + "\n날짜 : " + this.date + "\n극장명 : " + this.theater;
+        }
+
+    
+        var itemList = []; 
+
+
+       var addBtn = document.querySelector("#add");
+       addBtn.addEventListener("click", addList); 
+
+        
+        function addList() {
+            var title = document.querySelector("#title").value;
+            var date = document.querySelector("#date").value;
+            var theater = document.querySelector("#theater").value;
+
+            if(title == 0 || date == 0 || theater == 0) {
+                alert("영화명을 입력해주세요.");
+            } else {
+                itemList.push(new movie(title, date, theater));
+                document.querySelector("#title").value = " ";
+                document.querySelector("#date").value = " ";
+                document.querySelector("#theater").value = " ";
+                document.querySelector("#title").focus();
+                
+                showList();
+            }
+
+        }
+
+        function showList() {
+            event.preventDefault();
+            
+            var list = "<ul>";
+            for(var i = 0; i < itemList.length; i++) {
+                list += "<li>" + itemList[i].title + "<span class='movieInfo' id="+ i +">영화정보</span>" +"<span class='close' id="+ i +">x</span>" + "</li>"
+            }
+
+            list += "</ul>";
+
+            document.querySelector("#itemList").innerHTML = list;
+
+           
+            var movieList = document.querySelectorAll(".movieInfo"); 
+
+            for(var i = 0; i < movieList.length; i++) {
+                movieList[i].addEventListener("click", showmovieInfo);
+            }
+
+            var movieList = document.querySelectorAll(".close"); 
+
+            for(var i = 0; i < movieList.length; i++) {
+                movieList[i].addEventListener("click", removeItem);
+            }
+
+        }
+
+        function removeItem() {
+            var id = this.getAttribute("id"); 
+            itemList.splice(id, 1); 
+            showList();
+        }
+
+        function showmovieInfo() {
+            var id = this.getAttribute("id");
+            alert(itemList[id].showInfo());
+        }
+    </script>
+</body>
+</html> 

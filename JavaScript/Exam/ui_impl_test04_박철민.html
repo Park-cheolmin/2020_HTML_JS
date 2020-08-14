@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4번 문제</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #container { width: 300px; margin: 20px auto; padding: 50px; border: 1px solid black; }
+        img { width: 50px; }
+        h1 { display: inline-block; font-size: 1.2em; font-weight: normal; }
+        ul { list-style: none; }
+        .blue { font-weight: bold; color: blue; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img src="images/w3.PNG" alt="w3이미지">
+        <h1>Web Programming!</h1>
+        <hr>
+        <input type="text" id="subject">
+        <button id="btn">교과내용 추가</button>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>Javascript</li>
+        </ul>
+    </div>
+    <script>
+        $("#btn").on('click', function() {
+            var inputVal = $("#subject").val()
+            $("#container ul").append('<li>'+inputVal+'</li>')
+            $('#container ul li:last').addClass('blue')
+        })
+    </script>
+</body>
+</html>

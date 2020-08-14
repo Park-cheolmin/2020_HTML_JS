@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3번 문제</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .container { width: 600px; margin: 20px auto; padding: 50px; border: 1px solid black; }
+        h1 { text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>코리아 모터스</h1>
+        <p>구매하실 차종을 선택하시오.</p>
+        <form action="#">
+            <select id="carOpt">
+                <option value="1">2020 그랜져 하이브리드</option>
+                <option value="2">2020 제네시스 GV80</option>
+                <option value="3">2020 팰리세이드</option>
+                <option value="4">2020 소나타 하이브리드</option>
+                <option value="5">2020 QM6</option>
+                <option value="6">2020 K7</option>
+            </select>
+        </form>
+        <div id="carImg">
+            <img src="images/car1.png">
+            <p></p>
+        </div>
+    </div>
+    <script>
+        $("#carOpt").on('change', function() {
+            var selVal = $("#carOpt option:selected").attr('value');
+            $("#carImg img").attr('src', 'images/car'+selVal+'.png')
+
+            var selText = $("#carOpt option:selected").text();
+            $("#carImg p").html('고객님은'+selText+'(을)를 선택하셨습니다.')
+        }) 
+    </script>
+</body>
+</html>

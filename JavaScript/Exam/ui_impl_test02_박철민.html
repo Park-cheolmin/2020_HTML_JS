@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2번 문제</title>
+    <style>
+        .container { width: 500px; margin: 30px auto; padding: 30px; border: 1px solid black; }
+        h1 { text-align: center; }
+        input { display: inline-block; margin-bottom: 15px; }
+
+        fieldset:first-child label { padding: 0 30px 0 90px; }
+        fieldset:first-child input { width: 150px; }
+        fieldset:first-child select { width: 150px; }
+
+        .btn { text-align: center; }
+        .btn button { width: 60px; height: 30px; background: black; color: white; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>수강신청</h1>
+        <form id="apply">
+            <fieldset>
+                <legend>신청인</legend>
+                <div>
+                    <label for="s_name">이름</label>
+                    <input type="text" id="s_name">
+                    <br>
+                    <label for="major">학과</label>
+                    <form name="insert" onsubmit="return check_submit()"></form>
+                    <select name="major">
+                        <option selected>----학과 선택----</option>
+                        <option value="1">컴퓨터공학과</option>
+                        <option value="2">전자공학과</option>
+                        <option value="3">기계공학과</option>
+                        <option value="4">건축공학과</option>
+                        <option value="5">화학공학과</option>
+                        <option value="6">산업공학과</option>
+                    </select>
+                </form>
+                </div>
+            </fieldset>
+        </form>
+        <fieldset>
+            <legend>신청과목</legend>
+            <p>이 달에 신청할 과목을 선택하세요</p>
+            <input type="radio" name="subject" value="영어 회화">영어 회화
+            <input type="radio" name="subject" value="영어 문법">영어 문법
+            <input type="radio" name="subject" value="영어 작문">영어 작문
+        </fieldset>
+        <fieldset>
+            <legend>메일링</legend>
+            <input type="checkbox" name="topic" value="해외뉴스">해외뉴스
+            <input type="checkbox" name="topic" value="5분회화">5분회화
+            <input type="checkbox" name="topic" value="모닝팝스">모닝팝스
+        </fieldset>
+        <div class="btn">
+            <button id="cancelB" onclick="cancel()">취소</button>
+            <button id="confirmB" onclick="inputComplete()">확인</button>
+        </div>
+    </div>
+    <script>
+        function check_submit() {
+            if(insert.major.value == ""){
+                alert("학과를 선택해주세요")
+                insert.major.focus();
+                return false
+                
+            }
+            return true
+        }
+
+        function inputComplete() {
+            var nameResult = document.querySelector('#s_name').value
+            var selResult = document.querySelector('select').value
+            var radioResult = document.querySelector('input[name=subject]:checked').value
+            var checkResult = document.querySelector('input[name=topic]:checked').value
+
+            alert(`이름 ${nameResult}\n학과: ${selResult}\n신청 과목: ${radioResult}\n메일링: ${checkResult}`)
+        }
+
+        function cancel() {
+            document.querySelector("#apply").reset();
+        }
+    </script>
+</body>
+</html>
